@@ -1,5 +1,5 @@
 import { CompetitorLocation } from '../types/competitor';
-import { BRAND_LOGO_URLS } from '../assets/brandLogos';
+import { getBrandLogoUrl } from '../assets/brandLogos';
 
 /**
  * Creates the HTML string for an individual competitor marker.
@@ -16,7 +16,7 @@ export function generateMarkerHtml(
   isHovered: boolean,
   isSpiderfied = false
 ): string {
-  const logoUrl = BRAND_LOGO_URLS[location.brand] || '/logos/qdoba.svg';
+  const logoUrl = getBrandLogoUrl(location.brand);
   const haloColor = location.categoryColor;
 
   const size = isSelected ? 46 : isHovered ? 42 : 36;

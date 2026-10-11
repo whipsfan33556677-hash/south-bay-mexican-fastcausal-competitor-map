@@ -1,29 +1,38 @@
 import React from 'react';
 
+const BASE = (import.meta.env.BASE_URL || '/').endsWith('/')
+  ? (import.meta.env.BASE_URL || '/')
+  : `${import.meta.env.BASE_URL}/`;
+
+const resolveAsset = (path: string): string => {
+  const clean = path.startsWith('/') ? path.slice(1) : path;
+  return `${BASE}${clean}`;
+};
+
 /**
  * Registry of official, true brand logo assets.
  * Uses official vector SVGs and authentic high-resolution brand assets.
  */
 export const BRAND_LOGO_URLS: Record<string, string> = {
-  'QDOBA': '/logos/qdoba.svg',
-  'QDOBA Mexican Eats': '/logos/qdoba.svg',
-  'Chipotle Mexican Grill': '/logos/chipotle.svg',
-  'Taco Bell': '/logos/tacobell.svg',
-  'Del Taco': '/logos/deltaco.svg',
-  "Rubio's Coastal Grill": '/logos/rubios.svg',
-  'Baja Fresh': '/logos/bajafresh.svg',
-  'Cafe Rio Fresh Modern Mexican': '/logos/caferio.png',
-  'sweetgreen': '/logos/sweetgreen.png',
-  'Panda Express': '/logos/pandaexpress.svg',
-  'Panera Bread': '/logos/Screenshot_2026-10-09_at_2.35.26_PM-removebg-preview.png',
-  'CAVA': '/logos/cava.png',
-  'HomeState': '/logos/homestate.png',
-  'Plaza El Segundo': '/logos/plazaelsegundo_icon.png',
-  'El Pollo Loco': '/logos/images (10).png',
+  'QDOBA': resolveAsset('logos/qdoba.svg'),
+  'QDOBA Mexican Eats': resolveAsset('logos/qdoba.svg'),
+  'Chipotle Mexican Grill': resolveAsset('logos/chipotle.svg'),
+  'Taco Bell': resolveAsset('logos/tacobell.svg'),
+  'Del Taco': resolveAsset('logos/deltaco.svg'),
+  "Rubio's Coastal Grill": resolveAsset('logos/rubios.svg'),
+  'Baja Fresh': resolveAsset('logos/bajafresh.svg'),
+  'Cafe Rio Fresh Modern Mexican': resolveAsset('logos/caferio.png'),
+  'sweetgreen': resolveAsset('logos/sweetgreen.png'),
+  'Panda Express': resolveAsset('logos/pandaexpress.svg'),
+  'Panera Bread': resolveAsset('logos/Screenshot_2026-10-09_at_2.35.26_PM-removebg-preview.png'),
+  'CAVA': resolveAsset('logos/cava.png'),
+  'HomeState': resolveAsset('logos/homestate.png'),
+  'Plaza El Segundo': resolveAsset('logos/plazaelsegundo_icon.png'),
+  'El Pollo Loco': resolveAsset('logos/images (10).png'),
 };
 
 export const getBrandLogoUrl = (brandName: string): string => {
-  return BRAND_LOGO_URLS[brandName] || '/logos/qdoba.svg';
+  return BRAND_LOGO_URLS[brandName] || resolveAsset('logos/qdoba.svg');
 };
 
 interface BrandLogoProps {

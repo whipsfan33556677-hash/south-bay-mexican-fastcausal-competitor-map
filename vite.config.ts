@@ -5,6 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    base: '/south-bay-mexican-fastcausal-competitor-map/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
