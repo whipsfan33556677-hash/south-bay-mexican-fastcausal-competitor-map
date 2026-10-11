@@ -1,0 +1,6 @@
+{
+  "name": "South Bay Fast-Casual Competitor Map",
+  "description": "Interactive Mexican & Adjacent Fast-Casual Competitive Landscape map across the South Bay, featuring location intelligence, category halos, clustering, and search.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
